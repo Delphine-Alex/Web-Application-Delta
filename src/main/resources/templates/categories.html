@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Category list</title>
+</head>
+<body>
+	List of categories
+	
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>Name</th>
+		</thead>
+		<tbody>
+			<tr th:each="category: ${categories}">
+				<td><span th:text="${category.id}"/></td>
+				<td><span th:text="${category.name}"/></td>
+				<td><a th:href="@{/public/category/{id}(id=${category.id})}">See</a></td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+</html>
