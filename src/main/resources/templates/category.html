@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Article list </title>
+</head>
+<body>
+		List of articles
+	
+	<table>
+		<thead>
+			<th>Id</th>
+			<th>Title</th>
+			<th>Author's name</th>
+			<th>Content</th>
+			<th>Date</th>
+			<th>Id category</th>
+		</thead>
+		<tbody>
+		<tr th:each="article: ${category.articles}">
+				<td><span th:text="${article.id}"/></td>
+				<td><span th:text="${article.title}"/></td>
+				<td><span th:text="${article.author_name}"/></td>
+				<td><span th:text="${article.content}"/></td>
+				<td><span th:text="${article.date}"/></td>
+				<td><span th:text="${article.category_id}"/></td>
+				
+		</tr>
+		</tbody>
+	</table>
+</body>
+</html>
