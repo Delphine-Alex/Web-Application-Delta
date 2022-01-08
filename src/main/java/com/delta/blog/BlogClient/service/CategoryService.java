@@ -24,4 +24,8 @@ public class CategoryService {
 	public void addCategory(Category category) {
 		categoryProxy.addCategory(category);
 	}
+
+	public void deleteById(Integer id) {
+		categoryProxy.deleteById(id);		
+	}
 }

@@ -74,4 +74,11 @@ public class ArticleProxy {
 
 		restTemplate.exchange(props.getUrl() + "/articles", HttpMethod.POST, request, Article.class);
 	}
+
+	public void deleteById(Integer id) {
+		RestTemplate restTemplate = new RestTemplate();
+
+		restTemplate.exchange(props.getUrl() + "/article/" + id,
+				HttpMethod.DELETE, new HttpEntity<>(createTokenHeaders()), Article.class);
+	}
 }

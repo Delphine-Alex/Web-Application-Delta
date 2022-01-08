@@ -19,6 +19,7 @@
 				<th>Content</th>
 				<th>Date</th>
 				<th>Link</th>
+				<th>Delete</th>
 			</thead>
 			<tbody>
 				<tr th:each="article: ${category.articles}">
@@ -27,6 +28,7 @@
 					<td><span th:text="${article.content}"/></td>
 					<td><span th:text="${article.date}"/></td>
 					<td><a th:href="@{/public/article/{id}(id=${article.id})}">Article link</a></td>
+					<td><a th:href="@{/private/deleteArticle/{id}(id=${article.id})}">X</a></td>
 				</tr>
 			</tbody>
 		</table>

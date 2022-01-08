@@ -19,5 +19,9 @@ public class ArticleService {
 	public void addArticle(Article article) {
 		articleProxy.addArticle(article);		
 	}
+
+	public void deleteById(Integer id) {
+		articleProxy.deleteById(id);		
+	}
 	
 }

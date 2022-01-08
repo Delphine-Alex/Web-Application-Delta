@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -58,5 +59,12 @@ public class ArticleController {
 		model.addAttribute("category", categoryService.getCategoryById(category_id));
 		return "newArticle";
 	}
-	// add Update and Delete Article
+
+	@GetMapping("/deleteArticle/{id}")
+	public ModelAndView deleteArticle(@PathVariable(name = "id") Integer id) {
+		String catgoryId = articleService.getArticleById(id).getCategory_id();
+		articleService.deleteById(id);
+		
+		return new ModelAndView("redirect:/public/category/" + catgoryId);
+	}
 }

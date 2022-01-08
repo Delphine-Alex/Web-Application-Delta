@@ -75,4 +75,11 @@ public class CategoryProxy {
 		restTemplate.exchange(props.getUrl() + "/categories", HttpMethod.POST, request, Category.class);
 	}
 
+	public void deleteById(Integer id) {
+		RestTemplate restTemplate = new RestTemplate();
+
+		restTemplate.exchange(props.getUrl() + "/category/" + id, HttpMethod.DELETE,
+				new HttpEntity<>(createTokenHeaders()), Category.class);
+	}
+
 }

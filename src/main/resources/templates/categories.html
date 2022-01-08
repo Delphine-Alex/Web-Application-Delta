@@ -13,11 +13,13 @@
 			<thead>
 				<th>Name</th>
 				<th>Link</th>
+				<th>Delete</th>
 			</thead>
 			<tbody>
 				<tr th:each="category: ${categories}">
 					<td><span th:text="${category.name}"/></td>
 					<td><a th:href="@{/public/category/{id}(id=${category.id})}">Articles of this categorie</a></td>
+					<td><a th:href="@{/private/deleteCategory/{id}(id=${category.id})}">X</a></td>
 				</tr>
 			</tbody>
 		</table>

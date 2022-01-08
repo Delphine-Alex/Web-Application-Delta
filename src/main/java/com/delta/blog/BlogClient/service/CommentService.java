@@ -24,4 +24,8 @@ public class CommentService {
 	public List<Comment> getComments() {
 		return commentProxy.getComments();
 	}
+
+	public void deleteById(Integer id) {
+		commentProxy.deleteById(id);
+	}
 }

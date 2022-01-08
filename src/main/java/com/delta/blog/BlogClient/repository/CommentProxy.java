@@ -75,4 +75,11 @@ public class CommentProxy {
 		restTemplate.exchange(props.getUrl() + "/comments", HttpMethod.POST, request, Comment.class);
 	}
 
+	public void deleteById(Integer id) {
+		RestTemplate restTemplate = new RestTemplate();
+
+		restTemplate.exchange(props.getUrl() + "/comment/" + id,
+				HttpMethod.DELETE, new HttpEntity<>(createTokenHeaders()), Comment.class);
+	}
+
 }
