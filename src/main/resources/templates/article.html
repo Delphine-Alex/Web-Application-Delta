@@ -5,32 +5,35 @@
 <title th:text="'Blog Delta | Article ' + ${article.id} + ' - ' + ${article.title}"></title>
 </head>
 <body>
+	<div class="article">
 		<h1><span th:text="${article.title}"/></h1>
 		<h2><span th:text="${article.author_name}"/></h2>
-		
+	
 		<p><span th:text="${article.content}"/></p>
-		
-		
+	
 		<span th:text="${article.category_id}"/>
-		
-		
+	
 		<p>Article written at <span th:text="${article.date}"/> by user n°<span th:text="${article.user_id}"/></p>
-		
-		
+	</div>
+	
+	
+	<div class="comments">
 		<p>List of comments</p>
 		<table>
-		<thead>
-			<th>Username</th>
-			<th>Date</th>
-			<th>Comment</th>
-		</thead>
-		<tbody>
-			<tr th:each="comment: ${comments}">
-				<td><span th:text="${comment.author_name}"/></td>
-				<td><span th:text="${comment.date}"/></td>
-				<td><span th:text="${comment.comment}"/></td>
-			</tr>
-		</tbody>
-	</table>
+			<thead>
+				<th>Username</th>
+				<th>Date</th>
+				<th>Comment</th>
+			</thead>
+			<tbody>
+				<tr th:each="comment: ${comments}">
+					<td><span th:text="${comment.author_name}"/></td>
+					<td><span th:text="${comment.date}"/></td>
+					<td><span th:text="${comment.comment}"/></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+		
 </body>
 </html>
