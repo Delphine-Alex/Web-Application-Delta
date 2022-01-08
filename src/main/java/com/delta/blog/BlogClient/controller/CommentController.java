@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.delta.blog.BlogClient.model.Article;
 import com.delta.blog.BlogClient.model.Comment;
 import com.delta.blog.BlogClient.service.ArticleService;
 import com.delta.blog.BlogClient.service.CommentService;
