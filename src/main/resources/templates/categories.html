@@ -2,10 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Category list</title>
+<title>Blog Delta | Categories</title>
 </head>
 <body>
-	List of categories
+	<h1>List of categories</h1>
 	
 	<table>
 		<thead>
@@ -16,7 +16,7 @@
 			<tr th:each="category: ${categories}">
 				<td><span th:text="${category.id}"/></td>
 				<td><span th:text="${category.name}"/></td>
-				<td><a th:href="@{/public/category/{id}(id=${category.id})}">See</a></td>
+				<td><a th:href="@{/public/category/{id}(id=${category.id})}">Articles of this categorie</a></td>
 			</tr>
 		</tbody>
 	</table>

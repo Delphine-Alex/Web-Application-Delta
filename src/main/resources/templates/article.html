@@ -14,10 +14,8 @@
 		<span th:text="${article.category_id}"/>
 		
 		
-		<p>Article rédigé le <span th:text="${article.date}"/> par l'utilisateur n°<span th:text="${article.user_id}"/></p>
+		<p>Article written at <span th:text="${article.date}"/> by user n°<span th:text="${article.user_id}"/></p>
 		
-		
-		
-		<p><span th:text="${session.loggeduser}"/> is online.</p>
+		<iframe src="http://localhost:9000/public/comments"></iframe>
 </body>
 </html>
