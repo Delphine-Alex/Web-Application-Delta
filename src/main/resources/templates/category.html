@@ -5,31 +5,48 @@
 <title>Blog Delta | List of articles</title>
 </head>
 <body>
-	<h1>List of articles</h1>
-		
+	<div class="articles">
+		<h1>List of articles</h1>
+			
+		<table>
+			<thead>
+				<th>Id</th>
+				<th>Title</th>
+				<th>Author's name</th>
+				<th>Content</th>
+				<th>Date</th>
+				<th>Id category</th>
+				<th>Link</th>
+			</thead>
+			<tbody>
+				<tr th:each="article: ${category.articles}">
+					<td><span th:text="${article.id}"/></td>
+					<td><span th:text="${article.title}"/></td>
+					<td><span th:text="${article.author_name}"/></td>
+					<td><span th:text="${article.content}"/></td>
+					<td><span th:text="${article.date}"/></td>
+					<td><span th:text="${article.category_id}"/></td>
+					<td><a th:href="@{/public/article/{id}(id=${article.id})}">Article link</a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 	
-	<table>
-		<thead>
-			<th>Id</th>
-			<th>Title</th>
-			<th>Author's name</th>
-			<th>Content</th>
-			<th>Date</th>
-			<th>Id category</th>
-			<th>Link</th>
-		</thead>
-		<tbody>
-		<tr th:each="article: ${category.articles}">
-				<td><span th:text="${article.id}"/></td>
-				<td><span th:text="${article.title}"/></td>
-				<td><span th:text="${article.author_name}"/></td>
-				<td><span th:text="${article.content}"/></td>
-				<td><span th:text="${article.date}"/></td>
-				<td><span th:text="${article.category_id}"/></td>
-				<td><a th:href="@{/public/article/{id}(id=${article.id})}">Article link</a></td>
-				
-		</tr>
-		</tbody>
-	</table>
+	<div class="new_article">
+		<p>Add a new article !</p>
+		<form action="/public/categories" method="get">
+			<div class="form-article">
+				<label for="article_title">Enter article title: </label>
+		    	<input type="text" name="article_title" id="title" maxlength="24" required>
+	    	</div>
+	    	<div class="form-article">
+			    <label for="article_content">Enter your name: </label>
+			    <input type="text" name="article_content" id="content" maxlength="3000" required>
+			</div>
+			<div class="form-article">
+			    <input type="submit" value="Post this article in this category !">
+			</div>
+		</form>
+	</div>
 </body>
 </html>
