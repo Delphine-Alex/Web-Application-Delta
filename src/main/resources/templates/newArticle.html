@@ -7,7 +7,7 @@
 <body>
 	<div class="new_article">
 		<p>Add a new article !</p>
-		<form th:action="@{/private/article}" th:object="${article}" method="post">
+		<form th:action="@{/private/article?category_id={id}(id=${category.id})}" th:object="${article}" method="post">
 			<div class="form-article">
 				<label for="article_title">Enter article title: </label>
 		    	<input type="text" th:field="*{title}" name="article_title" id="title" maxlength="24" required>

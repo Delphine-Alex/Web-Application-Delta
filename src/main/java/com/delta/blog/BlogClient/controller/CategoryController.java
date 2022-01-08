@@ -1,9 +1,5 @@
 package com.delta.blog.BlogClient.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +18,11 @@ public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
 	
-	@PostMapping("/categories")
+	@PostMapping("/category")
 	public ModelAndView createNewCategory(@ModelAttribute Category category) {
 		categoryService.addCategory(category);
-		return new ModelAndView("redirect:/categories");
+		System.out.println(category.getName());
+		return new ModelAndView("redirect:/public/categories");
 	}
 	
 	@GetMapping("/newCategory")

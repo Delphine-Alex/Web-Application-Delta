@@ -81,7 +81,7 @@ public class CategoryProxy {
 		HttpEntity<Category> request = new HttpEntity<Category>(category, createTokenHeaders());
 		
 		restTemplate.exchange(
-				props.getUrl() + "/articles",
+				props.getUrl() + "/categories",
 				HttpMethod.POST,
 				request,
 				Category.class				
