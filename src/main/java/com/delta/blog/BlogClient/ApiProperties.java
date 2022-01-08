@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 public class ApiProperties {
 	private String url;
 	private String publicurl;
-	private String token;
 
 	public String getUrl() {
 		return url;
@@ -26,11 +25,4 @@ public class ApiProperties {
 		this.publicurl = publicurl;
 	}
 
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
 }

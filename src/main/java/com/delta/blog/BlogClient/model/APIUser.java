@@ -1,8 +1,8 @@
 package com.delta.blog.BlogClient.model;
 
-public class User {
+public class APIUser {
 	private Integer id;
-	private String author_name;
+	private String name;
 	private String mail;
 	private String password;
 
@@ -14,12 +14,12 @@ public class User {
 		this.id = id;
 	}
 
-	public String getAuthor_name() {
-		return author_name;
+	public String getName() {
+		return name;
 	}
 
-	public void setAuthor_name(String author_name) {
-		this.author_name = author_name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getMail() {

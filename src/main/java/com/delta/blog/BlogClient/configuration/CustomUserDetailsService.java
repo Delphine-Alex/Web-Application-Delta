@@ -12,31 +12,29 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.delta.blog.BlogClient.model.APIUser;
 import com.delta.blog.BlogClient.service.LoginService;
 
-
 @Service
-public class CustomUserDetailsService implements UserDetailsService{
+public class CustomUserDetailsService implements UserDetailsService {
+	
 	@Autowired
 	private LoginService loginService;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-		com.delta.blog.BlogClient.model.User user = new com.delta.blog.BlogClient.model.User();
-		user.setAuthor_name("Jinx");
+		APIUser user = new APIUser();
+		user.setName("Jinx");
 		user.setPassword("password");
 		loginService.login(user);
-		
-		User webUser = new User(
-				"yaya", 
-				new BCryptPasswordEncoder().encode("yaya"),
-				getGrantedAuthorities());
+
+		User webUser = new User("yaya", new BCryptPasswordEncoder().encode("yaya"), getGrantedAuthorities());
 		return webUser;
 	}
-	
+
 	private List<GrantedAuthority> getGrantedAuthorities() {
-		List<GrantedAuthority> authorities = 
-				new ArrayList<GrantedAuthority>();
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 		return authorities;
 	}
