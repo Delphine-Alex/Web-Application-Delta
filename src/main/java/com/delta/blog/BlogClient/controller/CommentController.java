@@ -1,12 +1,9 @@
 package com.delta.blog.BlogClient.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,6 +31,11 @@ public class CommentController {
 	public String newCommentPage(Model model) {
 		model.addAttribute("comment", new Comment());
 		return "newComment";
+	}
+	@DeleteMapping("/comment/{id}")
+	public ModelAndView deleteCommentPage(Comment comment,@PathVariable("id") Integer id) {
+		commentService.deleteCommentById(comment,id);
+		return new ModelAndView("redirect:/comments");
 	}
 	// add Update and Delete Comment
 }

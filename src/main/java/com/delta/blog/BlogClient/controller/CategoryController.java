@@ -1,14 +1,12 @@
 package com.delta.blog.BlogClient.controller;
 
-import java.util.List;
-
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,5 +31,11 @@ public class CategoryController {
 		model.addAttribute("category", new Category());
 		return "newCategory";
 	}
+	@DeleteMapping("delete/category/{id}")
+	public String deleteCategoryPage(Category category,@PathVariable("id") Integer id) {
+		categoryService.deleteCategoryById(category,id);
+		return "redirect:/categories";
+	}
+	
 	// add Update and Delete Category
 }
