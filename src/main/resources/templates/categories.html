@@ -16,13 +16,10 @@
 			<tr th:each="category: ${categories}">
 				<td><span th:text="${category.id}"/></td>
 				<td><span th:text="${category.name}"/></td>
-<<<<<<< Updated upstream
-				<td><a th:href="@{/public/category/{id}(id=${category.id})}">See</a></td>
-=======
+				
 				<td><a th:href="@{/public/category/{id}(id=${category.id})}">Articles of this category</a></td>
 				<td><a th:href="@{/private/delete/category/{id}(id=${category.id})}">Delete this category</a></td>
 				
->>>>>>> Stashed changes
 			</tr>
 		</tbody>
 	</table>
