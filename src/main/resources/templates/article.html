@@ -16,6 +16,19 @@
 		<p>Article written at <span th:text="${article.date}"/> by user n°<span th:text="${article.user_id}"/></p>
 	</div>
 	
+	<div class="new_comment">
+		<p>Add a new comment !</p>
+		<form action="/public/article" method="get">
+	    	<div class="form-comment">
+			    <label for="comment_comment">Enter a comment: </label>
+			    <input type="text" name="comment_comment" id="comment" maxlength="300" required>
+			</div>
+			<div class="form-comment">
+			    <input type="submit" value="Post this comment on this article">
+			</div>
+		</form>
+	</div>
+	
 	
 	<div class="comments">
 		<p>List of comments</p>
