@@ -27,6 +27,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		APIUser user = new APIUser();
 		user.setName("Jinx");
 		user.setPassword("password");
+		user.setId(2);
 		loginService.login(user);
 
 		User webUser = new User("yaya", new BCryptPasswordEncoder().encode("yaya"), getGrantedAuthorities());

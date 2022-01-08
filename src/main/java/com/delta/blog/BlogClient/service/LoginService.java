@@ -20,4 +20,12 @@ public class LoginService {
 		String token = loginProxy.login(user);
 		tokenContext.setToken(token);
 	}
+	
+	public String getCurrentUsername() {
+		return loginProxy.getCurrentUser();
+	}
+	
+	public Integer getCurrentUser_Id()  {
+		return loginProxy.getCurrentUserId();
+	}
 }

@@ -7,7 +7,7 @@
 <body>
 	<div class="new_comment">
 		<p>Add a new comment !</p>
-		<form th:action="@{/private/comment}" th:object="${comment}" method="post">
+		<form th:action="@{/private/comment?article_id={id}(id=${article.id})}" th:object="${comment}" method="post">
 	    	<div class="form-comment">
 			    <label for="comment_comment">Enter a comment: </label>
 			    <input type="text" th:field="*{comment}" name="comment_comment" id="comment" maxlength="300" required>

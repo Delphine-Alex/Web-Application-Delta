@@ -15,34 +15,39 @@ import org.springframework.web.servlet.ModelAndView;
 import com.delta.blog.BlogClient.model.Article;
 import com.delta.blog.BlogClient.service.ArticleService;
 import com.delta.blog.BlogClient.service.CategoryService;
+import com.delta.blog.BlogClient.service.LoginService;
 
 @Controller
 @RequestMapping("private")
 public class ArticleController {
 	@Autowired
 	private ArticleService articleService;
-	
+
 	@Autowired
 	private CategoryService categoryService;
 
+	@Autowired
+	private LoginService loginService;
+
 	@PostMapping("/article")
-	public ModelAndView createNewArticle(@RequestParam("category_id") String category_id, @ModelAttribute Article article) {
-		
+	public ModelAndView createNewArticle(@RequestParam("category_id") String category_id,
+			@ModelAttribute Article article) {
+
 		// Should get the logged API user
-		article.setAuthor_name("Jinx");
-		article.setUser_id("2");
-		
+		article.setAuthor_name(loginService.getCurrentUsername());
+		article.setUser_id(loginService.getCurrentUser_Id().toString());
+
 		// Should get params for category id
 		article.setCategory_id(category_id);
-		
-		// Save when the article was made	 
+
+		// Save when the article was made
 		Date now = new Date(System.currentTimeMillis());
 		System.out.println(now);
 		article.setDate(now);
-		
+
 		System.out.println(article.getAuthor_name());
 		System.out.println(article.getUser_id());
-		
+
 		articleService.addArticle(article);
 		return new ModelAndView("redirect:/public/category/" + category_id);
 	}
