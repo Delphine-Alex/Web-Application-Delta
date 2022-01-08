@@ -5,27 +5,27 @@
 <title>Blog Delta | List of articles</title>
 </head>
 <body>
+	<div class="nav_bar">
+		<a href="/public/categories"><button>Back</button></a>
+	</div>
+
 	<div class="articles">
 		<h1>List of articles</h1>
 			
 		<table>
 			<thead>
-				<th>Id</th>
 				<th>Title</th>
 				<th>Author's name</th>
 				<th>Content</th>
 				<th>Date</th>
-				<th>Id category</th>
 				<th>Link</th>
 			</thead>
 			<tbody>
 				<tr th:each="article: ${category.articles}">
-					<td><span th:text="${article.id}"/></td>
 					<td><span th:text="${article.title}"/></td>
 					<td><span th:text="${article.author_name}"/></td>
 					<td><span th:text="${article.content}"/></td>
 					<td><span th:text="${article.date}"/></td>
-					<td><span th:text="${article.category_id}"/></td>
 					<td><a th:href="@{/public/article/{id}(id=${article.id})}">Article link</a></td>
 				</tr>
 			</tbody>

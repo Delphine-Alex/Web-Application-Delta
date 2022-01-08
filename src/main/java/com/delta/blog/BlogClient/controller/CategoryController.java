@@ -17,18 +17,17 @@ import com.delta.blog.BlogClient.service.CategoryService;
 public class CategoryController {
 	@Autowired
 	private CategoryService categoryService;
-	
+
 	@PostMapping("/category")
 	public ModelAndView createNewCategory(@ModelAttribute Category category) {
 		categoryService.addCategory(category);
 		System.out.println(category.getName());
 		return new ModelAndView("redirect:/public/categories");
 	}
-	
+
 	@GetMapping("/newCategory")
 	public String newCategoryPage(Model model) {
 		model.addAttribute("category", new Category());
 		return "newCategory";
 	}
-	// add Update and Delete Category
 }

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.delta.blog.BlogClient.model.Article;
 import com.delta.blog.BlogClient.model.Comment;
 import com.delta.blog.BlogClient.service.ArticleService;
 import com.delta.blog.BlogClient.service.CommentService;
@@ -40,7 +41,8 @@ public class CommentController {
 		comment.setArticle_id(article_id);
 
 		commentService.addComment(comment);
-		return new ModelAndView("redirect:/public/categories");
+
+		return new ModelAndView("redirect:/public/article/" + comment.getArticle_id());
 	}
 
 	@GetMapping("/newComment")
@@ -49,5 +51,4 @@ public class CommentController {
 		model.addAttribute("article", articleService.getArticleById(article_id));
 		return "newComment";
 	}
-	// add Update and Delete Comment
 }

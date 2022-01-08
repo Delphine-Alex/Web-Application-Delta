@@ -8,13 +8,15 @@
 
 	<div class="new_cat">
 		<p>Add a new category !</p>
-		<form th:action="@{/private/category}" th:object="${category}" method="post">
+		<form th:action="@{/private/category}" th:object="${category}"
+			method="post">
 			<div class="form-article">
-				<label for="categorie_name">Enter categorie name: </label>
-		    	<input type="text" th:field="*{name}" name="categorie_name" id="name" maxlength="24" required>
-	    	</div>
-	    	<div class="form-article">
-			    <button type="submit">Create this category</button>
+				<label for="categorie_name">Enter categorie name: </label> <input
+					type="text" th:field="*{name}" name="categorie_name" id="name"
+					maxlength="24" required>
+			</div>
+			<div class="form-article">
+				<button type="submit">Create this category</button>
 			</div>
 		</form>
 	</div>

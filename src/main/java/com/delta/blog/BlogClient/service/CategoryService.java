@@ -12,7 +12,7 @@ import com.delta.blog.BlogClient.repository.CategoryProxy;
 public class CategoryService {
 	@Autowired
 	private CategoryProxy categoryProxy;
-	
+
 	public List<Category> getCategories() {
 		return categoryProxy.getCategories();
 	}
@@ -22,12 +22,6 @@ public class CategoryService {
 	}
 
 	public void addCategory(Category category) {
-		categoryProxy.addCategory(category);		
-	}
-	public void Category(Category category, Integer id) {
-		categoryProxy.Category(category, id);		
-	}
-	public void deleteCategoryById(Category category,Integer id) {
-		categoryProxy.deleteCategoryById(category,id);		
+		categoryProxy.addCategory(category);
 	}
 }
