@@ -1,7 +1,6 @@
 package com.delta.blog.BlogClient.controller;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -29,13 +28,6 @@ public class PublicController {
 	private CategoryService categoryService;
 	@Autowired
 	private CommentService commentService;
-
-	@GetMapping("/articles")
-	public String articlesPage(Model model, HttpSession session) {
-		List<Article> articles = articleService.getArticles();
-		model.addAttribute("articles", articles);
-		return "articles";
-	}
 
 	@GetMapping("/article/{id}")
 	public String articlePage(@PathVariable(name = "id") Integer id, Model model) {
