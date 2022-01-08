@@ -1,5 +1,7 @@
 package com.delta.blog.BlogClient.controller;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -38,7 +40,17 @@ public class PublicController {
 	@GetMapping("/article/{id}")
 	public String articlePage(@PathVariable(name = "id") Integer id, Model model) {
 		Article article = articleService.getArticleById(id);
+
+		// Get comments liked with current article
+		List<Comment> allComments = commentService.getComments();
+		List<Comment> comments = new ArrayList<Comment>();
+		for (int i = 0; i < allComments.size(); i++) {
+			if (allComments.get(i).getArticle_id().compareTo(Integer.toString(id)) == 0) {
+				comments.add(allComments.get(i));
+			}
+		}
 		model.addAttribute("article", article);
+		model.addAttribute("comments", comments);
 		return "article";
 	}
 
@@ -54,19 +66,5 @@ public class PublicController {
 		Category category = categoryService.getCategoryById(id);
 		model.addAttribute("category", category);
 		return "category";
-	}
-
-	@GetMapping("/comments")
-	public String commentsPage(Model model, HttpSession session) {
-		List<Comment> comments = commentService.getComments();
-		model.addAttribute("comments", comments);
-		return "comments";
-	}
-
-	@GetMapping("/comment/{id}")
-	public String commentPage(@PathVariable(name = "id") Integer id, Model model) {
-		Comment comment = commentService.getCommentById(id);
-		model.addAttribute("comment", comment);
-		return "comment";
 	}
 }
