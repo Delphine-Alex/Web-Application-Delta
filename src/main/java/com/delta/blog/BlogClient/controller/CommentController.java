@@ -35,7 +35,6 @@ public class CommentController {
 		comment.setUser_id(loginService.getCurrentUser_Id().toString());
 
 		Date now = new Date(System.currentTimeMillis());
-		System.out.println(now);
 		comment.setDate(now);
 
 		comment.setArticle_id(article_id);

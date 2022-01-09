@@ -59,4 +59,13 @@ public class PublicController {
 		model.addAttribute("category", category);
 		return "category";
 	}
+	
+	@GetMapping("/comments")
+	public void commentse() {
+		List<Comment> allComments = commentService.getComments();
+		for (int i = 0; i < allComments.size(); i++) {
+			System.out.println(allComments.get(i).getComment());
+		}
+	}
+
 }
