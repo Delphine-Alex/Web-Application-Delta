@@ -13,7 +13,7 @@
 		<h1><span th:text="${article.title}"/></h1>
 		<p><span th:text="${article.content}"/></p>
 	
-		<p>Article written at <span th:text="${article.date}"/> by <span th:text="${article.author_name}"/>, user n°<span th:text="${article.user_id}"/></p>
+		<p>Article written at <span th:text="${article.date}"/> by <span th:text="${article.author_name}"/></p>
 	</div>
 	
 	<a th:href="@{/private/newComment?article_id={id}(id=${article.id})}"><button>Create a new comment on this post</button></a>
