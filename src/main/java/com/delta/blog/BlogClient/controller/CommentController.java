@@ -58,4 +58,11 @@ public class CommentController {
 		commentService.deleteById(id);
 		return new ModelAndView("redirect:/public/article/" + articleId);
 	}
+	
+	@GetMapping("/updateComment/{comment_id}")
+	public String editCommentPage(@PathVariable(name = "comment_id") Integer comment_id, @RequestParam("article_id") Integer article_id, Model model) {
+		model.addAttribute("comment", commentService.getCommentById(comment_id));
+		model.addAttribute("article", articleService.getArticleById(article_id));
+		return "updateComment";
+	}
 }

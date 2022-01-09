@@ -82,4 +82,12 @@ public class CommentProxy {
 				HttpMethod.DELETE, new HttpEntity<>(createTokenHeaders()), Comment.class);
 	}
 
+	public void updateComment(Comment comment) {
+		RestTemplate restTemplate = new RestTemplate();
+
+		HttpEntity<Comment> request = new HttpEntity<Comment>(comment, createTokenHeaders());
+
+		restTemplate.exchange(props.getUrl() + "/comment/" + comment.getId().toString(), HttpMethod.PUT, request, Comment.class);
+	}
+
 }

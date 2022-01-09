@@ -10,6 +10,9 @@
 		<form
 			th:action="@{/private/comment?article_id={id}(id=${article.id})}"
 			th:object="${comment}" method="post">
+			
+			<input type="hidden" th:field="*{id}">
+			
 			<div class="form-comment">
 				<label for="comment_comment">Enter a new comment: </label> <input
 					type="text" th:field="*{comment}" name="comment_comment"

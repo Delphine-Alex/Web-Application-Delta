@@ -33,8 +33,6 @@ public class ArticleController {
 	@PostMapping("/article")
 	public ModelAndView createNewArticle(@RequestParam("category_id") String category_id,
 			@ModelAttribute Article article) {
-
-//		System.out.println(category_id);
 		
 		// Should get the logged API user
 		article.setAuthor_name(loginService.getCurrentUsername());

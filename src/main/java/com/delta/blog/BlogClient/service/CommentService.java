@@ -18,7 +18,11 @@ public class CommentService {
 	}
 
 	public void addComment(Comment comment) {
-		commentProxy.addComment(comment);
+		if (comment.getId() == null) {
+			commentProxy.addComment(comment);			
+		} else {
+			commentProxy.updateComment(comment);
+		}
 	}
 
 	public List<Comment> getComments() {
