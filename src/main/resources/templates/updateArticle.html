@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title th:text="'Delta Blog | Update article' + ${article.id}"></title>
+</head>
+<body>
+	<div class="new_article">
+		<p>Update article !</p>
+		<form
+			th:action="@{/private/article?category_id={id}(id=${category.id})}"
+			th:object="${article}" method="post">
+			<div class="form-article">
+				<label for="article_title">Enter the new article title: </label> <input
+					type="text" th:field="*{title}" name="article_title" id="title"
+					maxlength="24" required>
+			</div>
+			<div class="form-article">
+				<label for="article_content">Enter the new content of your
+					article: </label> <input type="text" th:field="*{content}"
+					name="article_content" id="content" maxlength="3000" required>
+			</div>
+			<div class="form-article">
+				<button type="submit">Save modifications</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

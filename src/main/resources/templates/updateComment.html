@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Delta Blog | Update comment</title>
+</head>
+<body>
+	<div class="new_comment">
+		<p>Update comment !</p>
+		<form
+			th:action="@{/private/comment?article_id={id}(id=${article.id})}"
+			th:object="${comment}" method="post">
+			<div class="form-comment">
+				<label for="comment_comment">Enter a new comment: </label> <input
+					type="text" th:field="*{comment}" name="comment_comment"
+					id="comment" maxlength="300" required>
+			</div>
+			<div class="form-comment">
+				<button type="submit">Modify this comment on this article</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

@@ -82,4 +82,13 @@ public class CategoryProxy {
 				new HttpEntity<>(createTokenHeaders()), Category.class);
 	}
 
+	public void updateCategory(Category category) {
+		System.out.println(category.getId());
+		
+		RestTemplate restTemplate = new RestTemplate();
+
+		HttpEntity<Category> request = new HttpEntity<Category>(category, createTokenHeaders());
+
+		restTemplate.exchange(props.getUrl() + "/category/" + category.getId().toString(), HttpMethod.PUT, request, Category.class);
+	}
 }

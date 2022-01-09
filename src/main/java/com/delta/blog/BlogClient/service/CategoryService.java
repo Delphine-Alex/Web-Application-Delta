@@ -22,10 +22,15 @@ public class CategoryService {
 	}
 
 	public void addCategory(Category category) {
-		categoryProxy.addCategory(category);
+		if (category.getId() == null) {
+			categoryProxy.addCategory(category);
+		} else {
+			categoryProxy.updateCategory(category);			
+		}
 	}
 
 	public void deleteById(Integer id) {
-		categoryProxy.deleteById(id);		
+		categoryProxy.deleteById(id);
 	}
+
 }

@@ -22,7 +22,6 @@ public class CategoryController {
 	@PostMapping("/category")
 	public ModelAndView createNewCategory(@ModelAttribute Category category) {
 		categoryService.addCategory(category);
-		System.out.println(category.getName());
 		return new ModelAndView("redirect:/public/categories");
 	}
 
@@ -36,5 +35,11 @@ public class CategoryController {
 	public ModelAndView deleteCategory(@PathVariable(name = "id") Integer id) {
 		categoryService.deleteById(id);
 		return new ModelAndView("redirect:/public/categories");
+	}
+	
+	@GetMapping("/updateCategory/{id}")
+	public String updateCategory(@PathVariable(name = "id") Integer id, Model model) {
+		model.addAttribute("category", categoryService.getCategoryById(id));
+		return "updateCategory";
 	}
 }

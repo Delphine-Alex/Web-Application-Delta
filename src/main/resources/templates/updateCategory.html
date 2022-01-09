@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Delta Blog | Update category</title>
+</head>
+<body>
+
+	<div class="new_cat">
+		<p>Update category !</p>
+		<form th:action="@{/private/category}" th:object="${category}"
+			method="post">
+			<input type="hidden" th:field="*{id}">
+			<div class="form-article">
+				<label for="categorie_name">Enter a new categorie name: </label> <input
+					type="text" th:field="*{name}" name="categorie_name" id="name"
+					maxlength="24" required>
+			</div>
+			<div class="form-article">
+				<button type="submit">Save this category</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>
