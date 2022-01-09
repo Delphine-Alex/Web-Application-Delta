@@ -83,8 +83,6 @@ public class CategoryProxy {
 	}
 
 	public void updateCategory(Category category) {
-		System.out.println(category.getId());
-		
 		RestTemplate restTemplate = new RestTemplate();
 
 		HttpEntity<Category> request = new HttpEntity<Category>(category, createTokenHeaders());

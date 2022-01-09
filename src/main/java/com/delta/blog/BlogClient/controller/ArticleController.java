@@ -34,6 +34,8 @@ public class ArticleController {
 	public ModelAndView createNewArticle(@RequestParam("category_id") String category_id,
 			@ModelAttribute Article article) {
 
+//		System.out.println(category_id);
+		
 		// Should get the logged API user
 		article.setAuthor_name(loginService.getCurrentUsername());
 		article.setUser_id(loginService.getCurrentUser_Id().toString());
@@ -66,5 +68,12 @@ public class ArticleController {
 		articleService.deleteById(id);
 		
 		return new ModelAndView("redirect:/public/category/" + catgoryId);
+	}
+	
+	@GetMapping("/updateArticle/{id}")
+	public String updateArticle(@RequestParam("category_id") Integer category_id, @PathVariable(name = "id") Integer id, Model model) {
+		model.addAttribute("article", articleService.getArticleById(id));
+		model.addAttribute("category", categoryService.getCategoryById(category_id));
+		return "updateArticle";
 	}
 }

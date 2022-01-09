@@ -17,7 +17,11 @@ public class ArticleService {
 	}
 
 	public void addArticle(Article article) {
-		articleProxy.addArticle(article);		
+		if (article.getId() == null) {
+			articleProxy.addArticle(article);					
+		} else {
+			articleProxy.updateArticle(article);
+		}
 	}
 
 	public void deleteById(Integer id) {

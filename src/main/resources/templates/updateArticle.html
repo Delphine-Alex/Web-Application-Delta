@@ -10,6 +10,9 @@
 		<form
 			th:action="@{/private/article?category_id={id}(id=${category.id})}"
 			th:object="${article}" method="post">
+			
+			<input type="hidden" th:field="*{id}">
+			
 			<div class="form-article">
 				<label for="article_title">Enter the new article title: </label> <input
 					type="text" th:field="*{title}" name="article_title" id="title"

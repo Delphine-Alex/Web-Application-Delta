@@ -16,6 +16,7 @@ import org.springframework.web.client.RestTemplate;
 import com.delta.blog.BlogClient.ApiProperties;
 import com.delta.blog.BlogClient.TokenContext;
 import com.delta.blog.BlogClient.model.Article;
+import com.delta.blog.BlogClient.model.Category;
 
 @Component
 public class ArticleProxy {
@@ -80,5 +81,13 @@ public class ArticleProxy {
 
 		restTemplate.exchange(props.getUrl() + "/article/" + id,
 				HttpMethod.DELETE, new HttpEntity<>(createTokenHeaders()), Article.class);
+	}
+
+	public void updateArticle(Article article) {
+		RestTemplate restTemplate = new RestTemplate();
+
+		HttpEntity<Article> request = new HttpEntity<Article>(article, createTokenHeaders());
+
+		restTemplate.exchange(props.getUrl() + "/article/" + article.getId().toString(), HttpMethod.PUT, request, Category.class);
 	}
 }
